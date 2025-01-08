@@ -1,0 +1,284 @@
+/* INDEX.HTML */
+body {
+    font-family: 'Poppins', Arial, sans-serif;
+    background-color: #1e1e1e;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url('../images/imgquiz.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+#containerPrincipal {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 80px 80px;
+    border-radius: 50px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+    width: 90%;
+    max-width: 600px;
+}
+
+#containerQuiz h1 {
+    color: #333;
+    font-size: 34px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+#containerQuiz h3 {
+    color: #666;
+    font-size: 20px;
+    margin-top: 10px;
+}
+
+#containerInicio {
+    margin-top: 40px;
+}
+
+#containerInicio #nombreUsuario {
+    width: 80%;
+    padding: 12px 20px;
+    font-size: 18px;
+    border: 2px solid #ff6600;
+    border-radius: 8px;
+    background-color: #fff;
+    color: #333;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+}
+
+#btnInicioQuiz {
+    padding: 15px 40px;
+    font-size: 22px;
+    font-weight: bold;
+    background: linear-gradient(45deg, #ff6600, #ff8c00);
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    box-shadow: 0 6px 16px rgba(255, 136, 0, 0.4);
+    transition: all 0.3s ease;
+}
+
+#btnInicioQuiz:hover {
+    background: linear-gradient(45deg, #ff5200, #ff7400);
+    transform: translateY(4px);
+    box-shadow: 0 10px 24px rgba(255, 136, 0, 0.6);
+}
+
+/*  QUIZ */
+#quizContainer {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 60%;
+    text-align: center;
+}
+
+#quizContainer div {
+    margin-bottom: 20px;
+    font-size: 18px;
+    color: #333;
+    font-weight: bold;
+}
+
+#quizContainer .respuesta {
+    background-color: #4292dd;
+    color: white;
+    border: none;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+#quizContainer .respuesta:hover {
+    background-color: #45a049;
+    transform: scale(1.05);
+}
+
+/* respuesta seleccionada */
+#quizContainer .respuesta.selected {
+    background-color: #3e8e41;
+}
+
+/* Feedback respuesta */
+#quizContainer .feedback {
+    font-size: 16px;
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 5px;
+    width: 100%;
+
+    /* respuesta correcta */
+    &[style*="green"] {
+        background-color: #d4edda;
+        color: #155724;
+    }
+    /* respuesta incorrecta */
+    &[style*="red"] {
+        background-color: #f8d7da;
+        color: #721c24;
+    }
+}
+
+/* RESULTADO.HTML */
+#resultado {
+    padding: 30px;
+    border-radius: 15px;
+    background-color: #333;
+    margin-top: 50px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #fff;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+.resultado0-4 {
+    background-color: #e74c3c;
+    animation: pulsar 1.5s infinite; /* agrandar texto */
+}
+.resultado5-6 {
+    background-color: #f39c12;
+    animation: pulsar 1.5s infinite;
+}
+.resultado7-9 {
+    background-color: #2ecc71;
+    animation: pulsar 1.5s infinite;
+}
+.resultado10 {
+    background-image: url(../images/luffy.jpeg);
+    background-size: cover;
+    background-position: center;
+    color: yellow;
+    font-size: 24px;
+    padding: 40px 20px;
+}
+
+/* Estilo para agrandar el resultado */
+@keyframes pulsar {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* MENSAJE TRAS RESULTADOS... */
+.efectoEscribir {
+    font-family: 'Courier', monospace;
+    font-size: 50px;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 4px solid black; /* cursor de la máquina */
+    width: 0;
+    animation: typing 5s steps(80) .1s 1 normal both, blink-caret 0.75s step-end infinite;
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+}
+@keyframes typing {
+    from {
+        width: 0; /* empieza texto oculto */
+    }
+    to {
+        width: 100%;
+    }
+}
+@keyframes blink-caret {
+    50% {
+        border-color: transparent; /* hace parpadear el cursor */
+    }
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    #containerPrincipal {
+        padding: 40px 40px;
+    }
+    #containerQuiz h1 {
+        font-size: 28px;
+    }
+    #containerQuiz h3 {
+        font-size: 18px;
+    }
+    #containerInicio #nombreUsuario {
+        width: 90%;
+        font-size: 16px;
+        padding: 12px 15px;
+    }
+    #btnInicioQuiz {
+        padding: 15px 30px;
+        font-size: 20px;
+    }
+    #quizContainer {
+        width: 80%;
+    }
+    #resultado {
+        font-size: 16px;
+        padding: 20px;
+        margin-top: 30px;
+    }
+    .resultado10 {
+        font-size: 20px;
+        padding: 30px 10px;
+    }
+    .efectoEscribir {
+        font-size: 35px;
+        animation: typing 4s steps(60) .1s 1 normal both;
+    }
+
+    /* Estilos para evitar hover en móviles */
+    .button:active {
+        background-color: #45a049; /* color de fondo cuando se toca */
+    }
+
+    /* Desactivamos el hover en dispositivos táctiles */
+    @media (hover: none) and (pointer: coarse) {
+        .button:hover {
+            background-color: inherit;
+        }
+        .button:focus {
+            outline: none;
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    #containerPrincipal {
+        padding: 30px 20px; /* Ajuste de padding */
+    }
+    #btnInicioQuiz {
+        padding: 12px 25px;
+        font-size: 18px;
+    }
+    #quizContainer {
+        width: 100%; /* Ajuste de ancho */
+    }
+
+    #resultado {
+        font-size: 14px;
+        padding: 15px;
+    }
+    .efectoEscribir {
+        font-size: 28px;
+        animation: typing 3s steps(50) .1s 1 normal both;
+    }
+    .resultado10 {
+        font-size: 18px;
+        padding: 20px 5px;
+    }
+}
